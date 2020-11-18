@@ -1,0 +1,6 @@
+{
+  "morgan": {
+    "isEnable": true,
+    "format": "short"
+  }
+}

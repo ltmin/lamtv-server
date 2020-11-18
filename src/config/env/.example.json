@@ -1,0 +1,87 @@
+{
+  "app": {
+    "port": 9001
+  },
+  "logger": {
+    "level": "info",
+    "transports": [
+      {
+        "type": "console"
+      }
+    ]
+  },
+  "morgan": {
+    "isEnable": true,
+    "format": "short"
+  },
+  "databases": {
+    "primary": {
+      "host": {
+        "__parse+envVar": "PRIMARY_MONGODB_HOST"
+      },
+      "port": {
+        "__parse+envVar": "PRIMARY_MONGODB_PORT"
+      },
+      "options": {
+        "auth": {
+          "authSource": {
+            "__parse+envVar": "PRIMARY_MONGODB_AUTH_SOURCE"
+          },
+          "user": {
+            "__parse+envVar": "PRIMARY_MONGODB_USER"
+          },
+          "password": {
+            "__parse+envVar": "PRIMARY_MONGODB_PASSWORD"
+          }
+        }
+      }
+    }
+  },
+  "services": {
+    "internal-service": {
+      "origin": "http://internal-service:9999"
+    }
+  },
+  "rabbitmq": {
+    "connection": {
+      "hostname": {
+        "__parse+envVar": "RABBITMQ_HOST"
+      },
+      "vhost": {
+        "__parse+envVar": "RABBITMQ_VHOST"
+      },
+      "port": {
+        "__parse+envVar": "RABBITMQ_PORT"
+      },
+      "username": {
+        "__parse+envVar": "RABBITMQ_USER"
+      },
+      "password": {
+        "__parse+envVar": "RABBITMQ_PASSWORD"
+      }
+    },
+    "exchanges": [
+      {
+        "name": "exchange1",
+        "type": "fanout",
+        "queues": [
+          {
+            "name": "queue1",
+            "consumer": {
+              "key": "Queue1",
+              "options": {
+                "noAck": true
+              }
+            }
+          }
+        ],
+        "options": {
+          "durable": true
+        },
+        "publisher": {
+          "key": "Exchange1"
+        }
+      }
+    ]
+  }
+}

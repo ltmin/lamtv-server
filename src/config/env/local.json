@@ -1,0 +1,14 @@
+{
+  "logger": {
+    "level": "debug",
+    "transports": [
+      {
+        "type": "console"
+      }
+    ]
+  },
+  "morgan": {
+    "isEnable": true,
+    "format": "short"
+  }
+}

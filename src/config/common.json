@@ -1,0 +1,27 @@
+{
+  "app": {
+    "port": 9001,
+    "name": {
+      "__parse+jsonPath": "package.json",
+      "__parse+jsonProp": "name"
+    },
+    "version": {
+      "__parse+jsonPath": "package.json",
+      "__parse+jsonProp": "version"
+    }
+  },
+  "logger": {
+    "level": {
+      "__parse+envVar": "LOGGER_LEVEL",
+      "__parse+default": "info"
+    },
+    "transports": [
+      {
+        "type": "console"
+      }
+    ]
+  },
+  "endpoint": {
+    "prefix": "/api"
+  }
+}
