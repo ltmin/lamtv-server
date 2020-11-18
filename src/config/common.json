@@ -23,5 +23,6 @@
   },
   "endpoint": {
     "prefix": "/api"
-  }
+  },
+  "WEDDING_START_TIME": 1610330400000
 }
