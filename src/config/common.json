@@ -1,6 +1,6 @@
 {
   "app": {
-    "port": 9001,
+    "port": 9000,
     "name": {
       "__parse+jsonPath": "package.json",
       "__parse+jsonProp": "name"

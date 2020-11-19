@@ -12,6 +12,8 @@ docker build . -t $FULL_IMAGE_NAME \
   --build-arg IMAGE_TAG=$IMAGE_TAG \
   --build-arg BUILD_ID=$BUILD_ID
 
-docker push $FULL_IMAGE_NAME
-docker image rm $FULL_IMAGE_NAME --force
-docker image prune --filter="label=build_id=$BUILD_ID" --force
+if [ -z DRYRUN ]; then
+  docker push $FULL_IMAGE_NAME
+  docker image rm $FULL_IMAGE_NAME --force
+  docker image prune --filter="label=build_id=$BUILD_ID" --force
+fi
